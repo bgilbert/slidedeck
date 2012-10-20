@@ -53,20 +53,12 @@ def load_slide():
     app.slides = {
         SLIDE_NAME: DeepZoomGenerator(slide, **opts)
     }
-    app.associated_images = []
-    for name, image in slide.associated_images.iteritems():
-        app.associated_images.append(name)
-        slug = slugify(name)
-        app.slides[slug] = DeepZoomGenerator(ImageSlide(image), **opts)
 
 
 @app.route('/')
 def index():
     slide_url = url_for('dzi', slug=SLIDE_NAME)
-    associated_urls = dict((name, url_for('dzi', slug=slugify(name)))
-            for name in app.associated_images)
-    return render_template('index.html', slide_url=slide_url,
-            associated=associated_urls)
+    return render_template('index.html', slide_url=slide_url)
 
 
 @app.route('/<slug>.dzi')
