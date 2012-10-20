@@ -20,18 +20,15 @@
 
 from cStringIO import StringIO
 from flask import Flask, abort, make_response, render_template, url_for
-from openslide import ImageSlide, open_slide
+from openslide import OpenSlide
 from openslide.deepzoom import DeepZoomGenerator
 from optparse import OptionParser
-import re
-from unicodedata import normalize
 
 DEEPZOOM_SLIDE = None
 DEEPZOOM_FORMAT = 'jpeg'
 DEEPZOOM_TILE_SIZE = 256
 DEEPZOOM_OVERLAP = 1
 DEEPZOOM_TILE_QUALITY = 75
-SLIDE_NAME = 'slide'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -49,41 +46,31 @@ def load_slide():
         'DEEPZOOM_OVERLAP': 'overlap',
     }
     opts = dict((v, app.config[k]) for k, v in config_map.iteritems())
-    slide = open_slide(slidefile)
-    app.slides = {
-        SLIDE_NAME: DeepZoomGenerator(slide, **opts)
-    }
+    slide = OpenSlide(slidefile)
+    app.slide = DeepZoomGenerator(slide, **opts)
 
 
 @app.route('/')
 def slide():
-    slide_url = url_for('dzi', slug=SLIDE_NAME)
-    return render_template('slide.html', slide_url=slide_url)
+    return render_template('slide.html', slide_url=url_for('dzi'))
 
 
-@app.route('/<slug>.dzi')
-def dzi(slug):
+@app.route('/slide.dzi')
+def dzi():
     format = app.config['DEEPZOOM_FORMAT']
-    try:
-        resp = make_response(app.slides[slug].get_dzi(format))
-        resp.mimetype = 'application/xml'
-        return resp
-    except KeyError:
-        # Unknown slug
-        abort(404)
+    resp = make_response(app.slide.get_dzi(format))
+    resp.mimetype = 'application/xml'
+    return resp
 
 
-@app.route('/<slug>_files/<int:level>/<int:col>_<int:row>.<format>')
-def tile(slug, level, col, row, format):
+@app.route('/slide_files/<int:level>/<int:col>_<int:row>.<format>')
+def tile(level, col, row, format):
     format = format.lower()
     if format != 'jpeg' and format != 'png':
         # Not supported by Deep Zoom
         abort(404)
     try:
-        tile = app.slides[slug].get_tile(level, (col, row))
-    except KeyError:
-        # Unknown slug
-        abort(404)
+        tile = app.slide.get_tile(level, (col, row))
     except ValueError:
         # Invalid level or coordinates
         abort(404)
@@ -92,18 +79,6 @@ def tile(slug, level, col, row, format):
     resp = make_response(buf.getvalue())
     resp.mimetype = 'image/%s' % format
     return resp
-
-
-# Based on Flask snippet 5
-_punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
-def slugify(text, delim=u'-'):
-    """Generates an ASCII-only slug."""
-    result = []
-    for word in _punct_re.split(unicode(text, 'UTF-8').lower()):
-        word = normalize('NFKD', word).encode('ascii', 'ignore')
-        if word:
-            result.append(word)
-    return unicode(delim.join(result))
 
 
 if __name__ == '__main__':
