@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #
-# deepzoom_server - Example web application for serving whole-slide images
+# slidedeck - Simple web application for serving whole-slide images
 #
-# Copyright (c) 2010-2011 Carnegie Mellon University
+# Copyright (c) 2010-2012 Carnegie Mellon University
 #
 # This library is free software; you can redistribute it and/or modify it
 # under the terms of version 2.1 of the GNU Lesser General Public License
@@ -35,7 +35,7 @@ SLIDE_NAME = 'slide'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config.from_envvar('DEEPZOOM_TILER_SETTINGS', silent=True)
+app.config.from_envvar('SLIDEDECK_SETTINGS', silent=True)
 
 
 # With Flask 0.8 and above:
