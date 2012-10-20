@@ -56,9 +56,9 @@ def load_slide():
 
 
 @app.route('/')
-def index():
+def slide():
     slide_url = url_for('dzi', slug=SLIDE_NAME)
-    return render_template('index.html', slide_url=slide_url)
+    return render_template('slide.html', slide_url=slide_url)
 
 
 @app.route('/<slug>.dzi')
