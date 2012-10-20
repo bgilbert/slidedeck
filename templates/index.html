@@ -37,33 +37,11 @@ div#images li {
 div#view {
     position: absolute;
     left: 16%;
-    width: 58%;
+    width: 83.5%;
     height: 98%;
     background-color: black;
     border: 1px solid #000;
     color: white;
-}
-div#properties {
-    position: absolute;
-    left: 75%;
-    width: 24.5%;
-    height: 98%;
-    overflow: auto;
-}
-div#properties-inner {
-    display: inline-block;
-}
-div#properties dl {
-    font-size: small;
-    margin: 0;
-}
-div#properties dt {
-    font-weight: bold;
-    border-top: 1px solid #000;
-    background-color: #eee;
-}
-div#properties dd {
-    margin-left: 0;
 }
 </style>
 
@@ -87,21 +65,6 @@ div#properties dd {
     {% endif %}
 </div>
 <div id="view"></div>
-<div id="properties">
-    <h1>Slide properties</h1>
-    {% if properties %}
-        <div id="properties-inner">
-            <dl>
-            {% for name in properties %}
-                <dt>{{ name }}
-                <dd>{{ properties[name] }}
-            {% endfor %}
-            </dl>
-        </div>
-    {% else %}
-        <span class="notice">None</span>
-    {% endif %}
-</div>
 
 <script type="text/javascript" src="static/jquery.js"></script>
 <script type="text/javascript" src="static/OpenSeadragon.js"></script>
