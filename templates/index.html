@@ -32,7 +32,13 @@ $(document).ready(function() {
         prefixUrl: "static",
         animationTime: 0.5,
         blendTime: 0.1,
+        maxZoomPixelRatio: 1,
         zoomPerScroll: 2,
+    });
+    viewer.addHandler("open", function() {
+        // Hack: we can't properly configure the TileSource's minLevel when
+        // it is created from DZI XML
+        viewer.source.minLevel = 8;
     });
 });
 </script>
