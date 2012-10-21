@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# slidedeck - Simple web application for serving whole-slide images
+# slidedeck - Simple web application for viewing whole-slide images
 #
 # Copyright (c) 2010-2012 Carnegie Mellon University
 #
