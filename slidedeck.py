@@ -35,9 +35,8 @@ app.config.from_object(__name__)
 app.config.from_envvar('SLIDEDECK_SETTINGS', silent=True)
 
 
-# With Flask 0.8 and above:
-# @app.before_first_request
-def load_slide():
+@app.before_first_request
+def _setup():
     slidefile = app.config['DEEPZOOM_SLIDE']
     if slidefile is None:
         raise ValueError('No slide file specified')
@@ -120,6 +119,5 @@ if __name__ == '__main__':
         app.config['DEEPZOOM_SLIDE'] = args[0]
     except IndexError:
         pass
-    load_slide()
 
     app.run(host=opts.host, port=opts.port)
