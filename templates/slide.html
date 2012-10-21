@@ -22,14 +22,18 @@ div#view {
 
 <div id="view"></div>
 
-<script type="text/javascript" src="static/jquery.js"></script>
-<script type="text/javascript" src="static/openseadragon.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='openseadragon.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+    var static_path = "{{ url_for('static', filename='') }}";
+    // Fix double slash
+    static_path = static_path.substring(0, static_path.length - 1);
+
     var viewer = new OpenSeadragon({
         id: "view",
         tileSources: "{{ slide_url }}",
-        prefixUrl: "static",
+        prefixUrl: static_path,
         animationTime: 0.5,
         blendTime: 0.1,
         maxZoomPixelRatio: 1,
