@@ -120,4 +120,4 @@ if __name__ == '__main__':
     except IndexError:
         pass
 
-    app.run(host=opts.host, port=opts.port)
+    app.run(host=opts.host, port=opts.port, threaded=True)
