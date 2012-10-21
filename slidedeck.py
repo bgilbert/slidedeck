@@ -62,6 +62,27 @@ class _SlideCache(object):
         return slide
 
 
+class _Directory(object):
+    def __init__(self, basedir, relpath=''):
+        self.name = os.path.basename(relpath)
+        self.children = []
+        for name in sorted(os.listdir(os.path.join(basedir, relpath))):
+            cur_relpath = os.path.join(relpath, name)
+            cur_path = os.path.join(basedir, cur_relpath)
+            if os.path.isdir(cur_path):
+                cur_dir = _Directory(basedir, cur_relpath)
+                if cur_dir.children:
+                    self.children.append(cur_dir)
+            elif OpenSlide.can_open(cur_path):
+                self.children.append(_SlideFile(cur_relpath))
+
+
+class _SlideFile(object):
+    def __init__(self, relpath):
+        self.name = os.path.basename(relpath)
+        self.url_path = relpath.replace('.', '__')
+
+
 @app.before_first_request
 def _setup():
     app.basedir = os.path.abspath(app.config['SLIDE_DIR'])
@@ -89,6 +110,11 @@ def _get_slide(path):
         return slide
     except OpenSlideError:
         abort(404)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html', root_dir=_Directory(app.basedir))
 
 
 @app.route('/<path:path>')
