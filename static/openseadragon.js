@@ -7751,7 +7751,7 @@ $.Tile.prototype = {
 
 (function( $ ){
     
-var TIMEOUT             = 5000,
+var TIMEOUT             = 120000,
     DEVICE_SCREEN       = $.getWindowSize(),
     BROWSER             = $.Browser.vendor,
     BROWSER_VERSION     = $.Browser.version,
