@@ -80,7 +80,7 @@ class _Directory(object):
 class _SlideFile(object):
     def __init__(self, relpath):
         self.name = os.path.basename(relpath)
-        self.url_path = relpath.replace('.', '__')
+        self.url_path = relpath
 
 
 @app.before_first_request
@@ -95,9 +95,6 @@ def _setup():
 
 
 def _get_slide(path):
-    # OpenSeadragon wants to strip the slide file's extension when
-    # generating tile URLs, so we need a way to escape it
-    path = path.replace('__', '.')
     path = os.path.abspath(os.path.join(app.basedir, path))
     if not path.startswith(app.basedir + os.path.sep):
         # Directory traversal
