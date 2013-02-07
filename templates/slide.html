@@ -25,18 +25,15 @@ div#view {
 <script type="text/javascript" src="{{ url_for('static', filename='openseadragon.js') }}"></script>
 <script type="text/javascript">
 window.addEventListener('load', function() {
-    var static_path = "{{ url_for('static', filename='') }}";
-    // Fix double slash
-    static_path = static_path.substring(0, static_path.length - 1);
-
     var viewer = new OpenSeadragon({
         id: "view",
         tileSources: "{{ slide_url }}",
-        prefixUrl: static_path,
+        prefixUrl: "{{ url_for('static', filename='images/') }}",
         animationTime: 0.5,
         blendTime: 0.1,
         maxZoomPixelRatio: 1,
         zoomPerScroll: 2,
+        timeout: 120000,
     });
     viewer.addHandler("open", function() {
         // Hack: we can't properly configure the TileSource's minLevel when
