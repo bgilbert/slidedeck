@@ -33,7 +33,10 @@ window.addEventListener('load', function() {
         prefixUrl: "{{ url_for('static', filename='images/') }}",
         animationTime: 0.5,
         blendTime: 0.1,
+        constrainDuringPan: true,
         maxZoomPixelRatio: 1,
+        minZoomLevel: 1,
+        visibilityRatio: 1,
         zoomPerScroll: 2,
         timeout: 120000,
     });
