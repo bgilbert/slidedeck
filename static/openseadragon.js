@@ -1,94 +1,112 @@
-/**
- * @version  OpenSeadragon 0.9.123
+//! OpenSeadragon 0.9.127
+//! Built on 2013-05-14
+//! Git commit: v0.9.127-3-gc78f3ef
+//! http://openseadragon.github.io
+//! License: http://openseadragon.github.io/license/
+
+/*
+ * OpenSeadragon
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @fileOverview 
- * <h2>
- * <strong>
- * OpenSeadragon - Javascript Deep Zooming
- * </strong>
- * </h2> 
- * <p>
- * OpenSeadragon is provides an html interface for creating 
- * deep zoom user interfaces.  The simplest examples include deep 
- * zoom for large resolution images, and complex examples include
- * zoomable map interfaces driven by SVG files.
- * </p>
- * 
- * @author <br/>(c) 2011, 2012 Christopher Thatcher 
- * @author <br/>(c) 2010 OpenSeadragon Team 
- * @author <br/>(c) 2010 CodePlex Foundation 
- * 
- * <p>
- * <strong>Original license preserved below: </strong><br/>
- * <pre>
- * ----------------------------------------------------------------------------
- * 
- *  License: New BSD License (BSD)
- *  Copyright (c) 2010, OpenSeadragon
- *  All rights reserved.
- * 
- *  Redistribution and use in source and binary forms, with or without 
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  * Redistributions of source code must retain the above copyright notice, this 
- *    list of conditions and the following disclaimer.
- *  
- *  * Redistributions in binary form must reproduce the above copyright notice, 
- *    this list of conditions and the following disclaimer in the documentation 
- *    and/or other materials provided with the distribution.
- * 
- *  * Neither the name of OpenSeadragon nor the names of its contributors may be 
- *    used to endorse or promote products derived from this software without 
- *    specific prior written permission.
- * 
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
- *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
- *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
- *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
- *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
- *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
- *  POSSIBILITY OF SUCH DAMAGE.
- * 
- * ---------------------------------------------------------------------------
- * </pre>
- * </p>
- * <p>
- * <strong> Work done by Chris Thatcher adds an MIT license </strong><br/>
- * <pre>
- * ----------------------------------------------------------------------------
- * (c) Christopher Thatcher 2011, 2012. All rights reserved.
- * 
- * Licensed with the MIT License
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- * ---------------------------------------------------------------------------
- * </pre>
- * </p>
- **/
+/*
+ * Portions of this source file taken from jQuery:
+ *
+ * Copyright 2011 John Resig
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 
- /** 
+/*
+ * Portions of this source file taken from mattsnider.com:
+ *
+ * Copyright (c) 2006-2013 Matt Snider
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+
+
+ /**
+  * @version  OpenSeadragon 0.9.127
+  * 
+  * @fileOverview 
+  * <h2>
+  * <strong>
+  * OpenSeadragon - Javascript Deep Zooming
+  * </strong>
+  * </h2> 
+  * <p>
+  * OpenSeadragon is provides an html interface for creating 
+  * deep zoom user interfaces.  The simplest examples include deep 
+  * zoom for large resolution images, and complex examples include
+  * zoomable map interfaces driven by SVG files.
+  * </p>
+  */
+
+ /**
   * The root namespace for OpenSeadragon, this function also serves as a single
   * point of instantiation for an {@link OpenSeadragon.Viewer}, including all 
   * combinations of out-of-the-box configurable features.  All utility methods 
@@ -373,9 +391,9 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
  *  namespace.  Many, if not most, are taked directly from jQuery for use
  *  to simplify and reduce common programming patterns.  More static methods 
  *  from jQuery may eventually make their way into this though we are
- *  attempting to avoid substaintial plagarism or the more explicit dependency
- *  on jQuery only because OpenSeadragon is a broadly useful code base and
- *  would be made less broad by requiring jQuery fully.
+ *  attempting to avoid an explicit dependency on jQuery only because
+ *  OpenSeadragon is a broadly useful code base and would be made less broad
+ *  by requiring jQuery fully.
  *
  *  Some static methods have also been refactored from the original OpenSeadragon 
  *  project.
@@ -476,26 +494,26 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             constrainDuringPan:     false,
             wrapHorizontal:         false,
             wrapVertical:           false,
-            visibilityRatio:        0.5,
-            minPixelRatio:          0.5,
-            minZoomImageRatio:      0.8,
-            maxZoomPixelRatio:      2,
+            visibilityRatio:        0.5, //-> how much of the viewer can be negative space
+            minPixelRatio:          1, //->closer to 0 draws tiles meant for a higher zoom at this zoom
             defaultZoomLevel:       0,
             minZoomLevel:           null,
             maxZoomLevel:           null, 
 
             //UI RESPONSIVENESS AND FEEL
-            springStiffness:        5.0,
+            springStiffness:        7.0,
             clickTimeThreshold:     300,
             clickDistThreshold:     5,
-            zoomPerClick:           2.0,
+            zoomPerClick:           2,
             zoomPerScroll:          1.2,
-            zoomPerSecond:          2.0,
-            animationTime:          1.5,
-            blendTime:              1.5,
+            zoomPerSecond:          1.0,
+            animationTime:          1.2,
+            blendTime:              0,
             alwaysBlend:            false,
             autoHideControls:       true,
             immediateRender:        false,
+            minZoomImageRatio:      0.9, //-> closer to 0 allows zoom out to infinity
+            maxZoomPixelRatio:      1.1, //-> higher allows 'over zoom' into pixels
 
             //DEFAULT CONTROL SETTINGS
             showSequenceControl:    true,  //SEQUENCE
@@ -534,7 +552,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             //PERFORMANCE SETTINGS
             imageLoaderLimit:       0,
             maxImageCacheCount:     200,
-            timeout:                5000,
+            timeout:                30000,
 
             //INTERFACE RESOURCE SETTINGS
             prefixUrl:              "/images/",
@@ -1028,6 +1046,48 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
 
 
         /**
+         * Add the specified CSS class to the element if not present.
+         * @name $.addClass
+         * @function
+         * @param {Element|String} element
+         * @param {String} className
+         */
+        addClass: function( element, className ) {
+            element = $.getElement( element );
+
+            if ( ! element.className ) {
+                element.className = className;
+            } else if ( ( ' ' + element.className + ' ' ).
+                indexOf( ' ' + className + ' ' ) === -1 ) {
+                element.className += ' ' + className;
+            }
+        },
+
+
+        /**
+         * Remove the specified CSS class from the element.
+         * @name $.removeClass
+         * @function
+         * @param {Element|String} element
+         * @param {String} className
+         */
+        removeClass: function( element, className ) {
+            var oldClasses,
+                newClasses = [],
+                i;
+
+            element = $.getElement( element );
+            oldClasses = element.className.split( /\s+/ );
+            for ( i = 0; i < oldClasses.length; i++ ) {
+                if ( oldClasses[ i ] && oldClasses[ i ] !== className ) {
+                    newClasses.push( oldClasses[ i ] );
+                }
+            }
+            element.className = newClasses.join(' ');
+        },
+
+
+        /**
          * Adds an event listener for the given element, eventName and handler.
          * @function
          * @name OpenSeadragon.addEvent
@@ -1387,108 +1447,16 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
 
 
         /**
-         * Loads a Deep Zoom Image description from a url, XML string or JSON string
-         * and provides a callback hook for the resulting Document
+         * Fully deprecated. Will throw an error.
          * @function
          * @name OpenSeadragon.createFromDZI
          * @param {String} xmlUrl
          * @param {String} xmlString
          * @param {Function} callback
-         * @deprecated
+         * @deprecated - use OpenSeadragon.Viewer.prototype.open
          */
         createFromDZI: function( dzi, callback, tileHost ) {
-            var async       = typeof ( callback ) == "function",
-                dziUrl      = (
-                    dzi.substring(0,1) != '<' && 
-                    dzi.substring(0,1) != '{' 
-                ) ? dzi : null,
-                dziString   = dziUrl ? null : dzi,
-                error       = null,
-                urlParts,
-                filename,
-                lastDot,
-                tilesUrl,
-                callbackName;
-
-
-            if( tileHost ){
-
-                tilesUrl = tileHost + "/_files/";
-                
-            } else if( dziUrl ) {
-
-                urlParts = dziUrl.split( '/' );
-                filename = urlParts[ urlParts.length - 1 ];
-                if( filename.match(/_dzi\.js$/) ){
-                    //for jsonp dzi specification, the '_dzi' needs to be removed
-                    //from the filename to be consistent with the spec
-                    filename = filename.replace('_dzi.js', '.js');
-                }
-
-                lastDot  = filename.lastIndexOf( '.' );
-
-                if ( lastDot > -1 ) {
-                    urlParts[ urlParts.length - 1 ] = filename.slice( 0, lastDot );
-                }
-
-
-                tilesUrl = urlParts.join( '/' ) + "_files/";
-
-            }
-
-            function finish( func, obj ) {
-                try {
-                    return func( obj, tilesUrl );
-                } catch ( e ) {
-                    if ( async ) {
-                        return null;
-                    } else {
-                        throw e;
-                    }
-                }
-            }
-
-            if ( async ) {
-                if ( dziString ) {
-                    window.setTimeout( function() {
-                        var source = finish( processDZIXml, $.parseXml( xmlString ) );
-                        // call after finish sets error
-                        callback( source, error );    
-                    }, 1);
-                } else {
-                    if( dziUrl.match(/_dzi\.js$/) ){
-                        callbackName = dziUrl.split( '/' ).pop().replace('.js','');
-                        $.jsonp({
-                            url: dziUrl,
-                            callbackName: callbackName,
-                            callback: function( imageData ){
-                                var source = finish( processDZIJSON, imageData.Image );
-                                callback( source );
-                            }
-                        });
-                    } else {
-                        $.makeAjaxRequest( dziUrl, function( xhr ) {
-                            var source = finish( processDZIResponse, xhr );
-                            // call after finish sets error
-                            callback( source, error );
-                        });
-                    }
-                }
-
-                return null;
-            }
-
-            if ( dziString ) {
-                return finish( 
-                    processDZIXml,
-                    $.parseXml( dziString ) 
-                );
-            } else {
-                return finish( 
-                    processDZIResponse, 
-                    $.makeAjaxRequest( dziUrl )
-                );
-            }
+            throw "OpenSeadragon.createFromDZI is deprecated, use Viewer.open.";
         },
 
         /**
@@ -1948,13 +1916,71 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - full-screen support functions
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * Implementation and research by John Dyer in:
+ * http://johndyer.name/native-fullscreen-javascript-api-plus-jquery-plugin/
+ * John Dyer has released this fullscreen code under the MIT license; see
+ * <https://github.com/openseadragon/openseadragon/issues/81>.
+ *
+ * Copyright (C) 2011 John Dyer
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+
 /**
  * Determines the appropriate level of native full screen support we can get 
  * from the browser.
- * Thanks to John Dyer for the implementation and research
- * http://johndyer.name/native-fullscreen-javascript-api-plus-jquery-plugin/
- * Also includes older IE support based on
- * http://stackoverflow.com/questions/1125084/how-to-make-in-javascript-full-screen-windows-stretching-all-over-the-screen/7525760
  * @name $.supportsFullScreen
  */
 (function( $ ) {
@@ -2010,7 +2036,8 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
                 document[this.prefix + 'CancelFullScreen']();
         };
     } else if ( typeof window.ActiveXObject !== "undefined" ){
-        // Older IE.
+        // Older IE.  Support based on:
+        // http://stackoverflow.com/questions/1125084/how-to-make-in-javascript-full-screen-windows-stretching-all-over-the-screen/7525760
         fullScreenApi.requestFullScreen = function(){
             var wscript = new ActiveXObject("WScript.Shell");
             if ( wscript !== null ) {
@@ -2026,6 +2053,41 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
     $.extend( $, fullScreenApi );
 
 })( OpenSeadragon );
+
+/*
+ * OpenSeadragon - EventHandler
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function($){
 
 /**
@@ -2140,6 +2202,40 @@ $.EventHandler.prototype = {
 };
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - MouseTracker
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
         
@@ -3205,6 +3301,40 @@ $.EventHandler.prototype = {
     
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - Control
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
     
 /**
@@ -3309,6 +3439,40 @@ $.Control.prototype = {
 };
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - ControlDock
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
 
@@ -3494,6 +3658,41 @@ $.Control.prototype = {
     }
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Viewer
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
      
 // dictionary from hash to private properties
@@ -3520,10 +3719,12 @@ var THIS = {},
  * @param {String} options.xmlPath  Xpath ( TODO: not sure! ),
  * @param {String} options.prefixUrl  Url used to prepend to paths, eg button 
  *  images, etc.
- * @param {Seadragon.Controls[]} options.controls Array of Seadragon.Controls,
- * @param {Seadragon.Overlays[]} options.overlays Array of Seadragon.Overlays,
- * @param {Seadragon.Controls[]} options.overlayControls An Array of ( TODO: 
+ * @param {OpenSeadragon.Control[]} options.controls Array of OpenSeadragon.Control,
+ * @param {OpenSeadragon.Overlay[]} options.overlays Array of OpenSeadragon.Overlay,
+ * @param {OpenSeadragon.Control[]} options.overlayControls An Array of ( TODO: 
  *  not sure! )
+ * @property {OpenSeadragon.Viewport} viewport The viewer's viewport, where you 
+ *  can access zoom, pan, etc.
  *
  **/    
 $.Viewer = function( options ) {
@@ -3611,8 +3812,7 @@ $.Viewer = function( options ) {
     THIS[ this.hash ] = {
         "fsBoundsDelta":     new $.Point( 1, 1 ),
         "prevContainerSize": null,
-        "lastOpenStartTime": 0,
-        "lastOpenEndTime":   0,
+        "updateRequestId":   null,
         "animating":         false,
         "forceRedraw":       false,
         "mouseInside":       false,
@@ -3625,6 +3825,7 @@ $.Viewer = function( options ) {
         // did we decide this viewer has a sequence of tile sources
         "sequenced":         false,
         "sequence":          0,
+        "fullPage":          false, 
         "onfullscreenchange": null
     };
 
@@ -3659,7 +3860,7 @@ $.Viewer = function( options ) {
             initialTileSource = this.tileSources;
         }
 
-        this.openTileSource( initialTileSource );
+        this.open( initialTileSource );
     }
 
     this.element        = this.element || document.getElementById( this.id );
@@ -3750,29 +3951,36 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
     },
 
     /**
-     * If the string is xml is simply parsed and opened, otherwise the string 
-     * is treated as an URL and an xml document is requested via ajax, parsed 
-     * and then opened in the viewer.
+     * A deprecated function, renamed to 'open' to match event name and 
+     * match current 'close' method. 
      * @function
      * @name OpenSeadragon.Viewer.prototype.openDzi
-     * @param {String} dzi and xml string or the url to a DZI xml document.
+     * @param {String} dzi xml string or the url to a DZI xml document.
      * @return {OpenSeadragon.Viewer} Chainable.
      *
      * @deprecated - use 'open' instead.
      */
     openDzi: function ( dzi ) {
-        var _this = this;
-        $.createFromDZI(
-            dzi,
-            function( source ){
-               _this.open( source );
-            },
-            this.tileHost
-        );
-        return this;
+        return this.open( dzi );
     },
 
     /**
+     * A deprecated function, renamed to 'open' to match event name and 
+     * match current 'close' method.
+     * @function
+     * @name OpenSeadragon.Viewer.prototype.openTileSource
+     * @param {String|Object|Function} See OpenSeadragon.Viewer.prototype.open
+     * @return {OpenSeadragon.Viewer} Chainable.
+     *
+     * @deprecated - use 'open' instead.
+     */
+    openTileSource: function ( tileSource ) {
+        return this.open( tileSource );
+    },
+
+    /**
+     * Open a TileSource object into the viewer.
+     *
      * tileSources is a complex option...
      * 
      * It can be a string, object, function, or an array of any of these:
@@ -3786,235 +3994,68 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
      *      implementation. If the object has a property which is a function
      *      named 'getTileUrl', it is treated as a custom TileSource.
      * @function
-     * @name OpenSeadragon.Viewer.prototype.openTileSource
+     * @name OpenSeadragon.Viewer.prototype.open
+     * @param {String|Object|Function}
      * @return {OpenSeadragon.Viewer} Chainable.
      */
-    openTileSource: function ( tileSource ) {
+    open: function ( tileSource ) {
         var _this = this,
             customTileSource,
             readySource,
             $TileSource,
             options;
 
+        //allow plain xml strings or json strings to be parsed here
+        if( $.type( tileSource ) == 'string' ){
+            if( tileSource.match(/\s*<.*/) ){
+                tileSource = $.parseXml( tileSource );
+            }else if( tileSource.match(/\s*[\{\[].*/) ){
+                /*jshint evil:true*/
+                tileSource = eval( '('+tileSource+')' );
+            }
+        }
+
         setTimeout(function(){
             if ( $.type( tileSource ) == 'string') {
-                //TODO: We cant assume a string implies a dzi since all 
-                //complete TileSource implementations should have a getInfo
-                //which allows them to be configured via AJAX.  Im not sure
-                //if its better to use file extension or url pattern, or to 
-                //inspect the resulting info object.
+                //If its still a string it means it must be a url at this point
                 tileSource = new $.TileSource( tileSource, function( readySource ){
-                    _this.open( readySource );
+                    openTileSource( _this, readySource );
                 });
 
-            } else if ( $.isPlainObject( tileSource ) ){
+            } else if ( $.isPlainObject( tileSource ) || tileSource.nodeType ){
                 if( $.isFunction( tileSource.getTileUrl ) ){
                     //Custom tile source
                     customTileSource = new $.TileSource(tileSource);
                     customTileSource.getTileUrl = tileSource.getTileUrl;
-                    _this.open( customTileSource );
+                    openTileSource( _this, customTileSource );
                 } else {
                     //inline configuration
                     $TileSource = $.TileSource.determineType( _this, tileSource );
                     options = $TileSource.prototype.configure.apply( _this, [ tileSource ]);
                     readySource = new $TileSource( options );
-                    _this.open( readySource );
+                    openTileSource( _this, readySource );
                 }
             } else {
                 //can assume it's already a tile source implementation
-                _this.open( tileSource );
+                openTileSource( _this, tileSource );
             }
         }, 1);
 
         return this;
     },
 
-    /**
-     * @function
-     * @name OpenSeadragon.Viewer.prototype.open
-     * @return {OpenSeadragon.Viewer} Chainable.
-     */
-    open: function( source ) {
-        var _this = this,
-            overlay,
-            i;
-
-        if ( this.source ) {
-            this.close( );
-        }
-        
-        // to ignore earlier opens
-        THIS[ this.hash ].lastOpenStartTime = +new Date();
-
-        window.setTimeout( function () {
-            if ( THIS[ _this.hash ].lastOpenStartTime > THIS[ _this.hash ].lastOpenEndTime ) {
-                THIS[ _this.hash ].setMessage( $.getString( "Messages.Loading" ) );
-            }
-        }, 2000);
-
-        THIS[ this.hash ].lastOpenEndTime = +new Date();
-        this.canvas.innerHTML = "";
-        THIS[ this.hash ].prevContainerSize = $.getElementSize( this.container );
-
-
-        if( this.collectionMode ){
-            this.source = new $.TileSourceCollection({
-                rows: this.collectionRows,
-                layout: this.collectionLayout,
-                tileSize: this.collectionTileSize,
-                tileSources: this.tileSources,
-                tileMargin: this.collectionTileMargin
-            });
-            this.viewport = this.viewport ? this.viewport : new $.Viewport({
-                collectionMode:         true,
-                collectionTileSource:   this.source,
-                containerSize:          THIS[ this.hash ].prevContainerSize, 
-                contentSize:            this.source.dimensions, 
-                springStiffness:        this.springStiffness,
-                animationTime:          this.animationTime,
-                showNavigator:          false,
-                minZoomImageRatio:      1,
-                maxZoomPixelRatio:      1,
-                viewer:                 this //,
-                //TODO: figure out how to support these in a way that makes sense
-                //minZoomLevel:           this.minZoomLevel,
-                //maxZoomLevel:           this.maxZoomLevel
-            });
-        }else{
-            if( source ){
-                this.source = source;
-            }
-            this.viewport = this.viewport ? this.viewport : new $.Viewport({
-                containerSize:      THIS[ this.hash ].prevContainerSize, 
-                contentSize:        this.source.dimensions, 
-                springStiffness:    this.springStiffness,
-                animationTime:      this.animationTime,
-                minZoomImageRatio:  this.minZoomImageRatio,
-                maxZoomPixelRatio:  this.maxZoomPixelRatio,
-                visibilityRatio:    this.visibilityRatio,
-                wrapHorizontal:     this.wrapHorizontal,
-                wrapVertical:       this.wrapVertical,
-                defaultZoomLevel:   this.defaultZoomLevel,
-                minZoomLevel:       this.minZoomLevel,
-                maxZoomLevel:       this.maxZoomLevel,
-                viewer:             this
-            });
-        }
-        
-        if( this.preserveVewport ){
-            this.viewport.resetContentSize( this.source.dimensions );
-        } 
-
-        this.source.overlays = this.source.overlays || [];
-
-        this.drawer = new $.Drawer({
-            source:             this.source, 
-            viewport:           this.viewport, 
-            element:            this.canvas,
-            overlays:           [].concat( this.overlays ).concat( this.source.overlays ),
-            maxImageCacheCount: this.maxImageCacheCount,
-            imageLoaderLimit:   this.imageLoaderLimit,
-            minZoomImageRatio:  this.minZoomImageRatio,
-            wrapHorizontal:     this.wrapHorizontal,
-            wrapVertical:       this.wrapVertical,
-            immediateRender:    this.immediateRender,
-            blendTime:          this.blendTime,
-            alwaysBlend:        this.alwaysBlend,
-            minPixelRatio:      this.collectionMode ? 0 : this.minPixelRatio,
-            timeout:            this.timeout,
-            debugMode:          this.debugMode,
-            debugGridColor:     this.debugGridColor
-        });
-
-        //Instantiate a navigator if configured
-        if ( this.showNavigator  && ! this.navigator && !this.collectionMode ){
-            this.navigator = new $.Navigator({
-                id:          this.navigatorElement,
-                position:    this.navigatorPosition,
-                sizeRatio:   this.navigatorSizeRatio,
-                height:      this.navigatorHeight,
-                width:       this.navigatorWidth,
-                tileSources: this.tileSources,
-                tileHost:    this.tileHost,
-                prefixUrl:   this.prefixUrl,
-                overlays:    this.overlays,
-                viewer:      this
-            });
-        }
-
-        //Instantiate a referencestrip if configured
-        if ( this.showReferenceStrip  && ! this.referenceStrip ){
-            this.referenceStrip = new $.ReferenceStrip({
-                id:          this.referenceStripElement,
-                position:    this.referenceStripPosition,
-                sizeRatio:   this.referenceStripSizeRatio,
-                scroll:      this.referenceStripScroll,
-                height:      this.referenceStripHeight,
-                width:       this.referenceStripWidth,
-                tileSources: this.tileSources,
-                tileHost:    this.tileHost,
-                prefixUrl:   this.prefixUrl,
-                overlays:    this.overlays,
-                viewer:      this
-            });
-        }
-
-        //this.profiler = new $.Profiler();
-
-        THIS[ this.hash ].animating = false;
-        THIS[ this.hash ].forceRedraw = true;
-        scheduleUpdate( this, updateMulti );
-
-        //Assuming you had programatically created a bunch of overlays
-        //and added them via configuration
-        for ( i = 0; i < this.overlayControls.length; i++ ) {
-            
-            overlay = this.overlayControls[ i ];
-            
-            if ( overlay.point ) {
-            
-                this.drawer.addOverlay(
-                    overlay.id, 
-                    new $.Point( 
-                        overlay.point.X, 
-                        overlay.point.Y 
-                    ), 
-                    $.OverlayPlacement.TOP_LEFT
-                );
-            
-            } else {
-            
-                this.drawer.addOverlay(
-                    overlay.id, 
-                    new $.Rect(
-                        overlay.rect.Point.X, 
-                        overlay.rect.Point.Y, 
-                        overlay.rect.Width, 
-                        overlay.rect.Height
-                    ), 
-                    overlay.placement
-                );
-            
-            }
-        }
-        VIEWERS[ this.hash ] = this;
-
-        if( this.navigator ){
-            this.navigator.open( source );
-        }
-
-        this.raiseEvent( 'open', { source: source, viewer: this } );
-
-        return this;
-    },
-
+    
     /**
      * @function
      * @name OpenSeadragon.Viewer.prototype.close
      * @return {OpenSeadragon.Viewer} Chainable.
      */
     close: function ( ) {
-        
+        if ( THIS[ this.hash ].updateRequestId !== null ){
+            $.cancelAnimationFrame( THIS[ this.hash ].updateRequestId );
+            THIS[ this.hash ].updateRequestId = null;
+        }
+
         if( this.drawer ){
             this.drawer.clearOverlays();
         }
@@ -4093,7 +4134,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
      * @return {Boolean}
      */
     isFullPage: function () {
-        return this.element.parentNode == document.body;
+        return THIS[ this.hash ].fullPage;
     },
 
 
@@ -4150,7 +4191,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
             //the bodies elements and replace them when we leave full screen.
             this.previousBody = [];
             THIS[ this.hash ].prevElementParent = this.element.parentNode;
-            THIS[ this.hash ].prevNextSibling = this.element.prevNextSibling;
+            THIS[ this.hash ].prevNextSibling = this.element.nextSibling;
             THIS[ this.hash ].prevElementSize = $.getElementSize( this.element );
             nodes = body.childNodes.length;
             for ( i = 0; i < nodes; i ++ ){
@@ -4169,12 +4210,10 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
 
                 //Make sure the user has some ability to style the toolbar based
                 //on the mode
-                this.toolbar.element.setAttribute( 
-                    'class',
-                    this.toolbar.element.className +" fullpage"
-                );
+                $.addClass( this.toolbar.element, 'fullpage' );
             }
             
+            $.addClass( this.element, 'fullpage' );
             body.appendChild( this.element );
             
             if( $.supportsFullScreen ){
@@ -4211,6 +4250,8 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
                 ) + 'px';
             }
 
+            THIS[ this.hash ].fullPage = true;
+
             // mouse will be inside container now
             $.delegate( this, onContainerEnter )();
 
@@ -4242,6 +4283,8 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
             for ( i = 0; i < nodes; i++ ){
                 body.appendChild( this.previousBody.shift() );
             }
+
+            $.removeClass( this.element, 'fullpage' );
             THIS[ this.hash ].prevElementParent.insertBefore(
                 this.element,
                 THIS[ this.hash ].prevNextSibling
@@ -4254,10 +4297,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
 
                 //Make sure the user has some ability to style the toolbar based
                 //on the mode
-                this.toolbar.element.setAttribute( 
-                    'class',
-                    this.toolbar.element.className.replace('fullpage','')
-                );
+                $.removeClass( this.toolbar.element, 'fullpage' );
                 //this.toolbar.element.style.position = 'relative';
                 this.toolbar.parentNode.insertBefore( 
                     this.toolbar.element,
@@ -4271,6 +4311,8 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
 
             this.element.style.height = THIS[ this.hash ].prevElementSize.y + 'px';
             this.element.style.width = THIS[ this.hash ].prevElementSize.x + 'px';
+
+            THIS[ this.hash ].fullPage = false;
 
             // mouse will likely be outside now
             $.delegate( this, onContainerExit )();
@@ -4581,7 +4623,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
                 }
             }
 
-            this.openTileSource( this.tileSources[ page ] );
+            this.open( this.tileSources[ page ] );
         }
 
         if( $.isFunction( this.onPageChange ) ){
@@ -4597,6 +4639,175 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
     }
 
 });
+
+/**
+ * @function
+ * @private
+ */
+function openTileSource( viewer, source ) {
+    var _this = viewer,
+        overlay,
+        i;
+
+    if ( _this.source ) {
+        _this.close( );
+    }
+    
+    _this.canvas.innerHTML = "";
+    THIS[ _this.hash ].prevContainerSize = $.getElementSize( _this.container );
+
+
+    if( _this.collectionMode ){
+        _this.source = new $.TileSourceCollection({
+            rows: _this.collectionRows,
+            layout: _this.collectionLayout,
+            tileSize: _this.collectionTileSize,
+            tileSources: _this.tileSources,
+            tileMargin: _this.collectionTileMargin
+        });
+        _this.viewport = _this.viewport ? _this.viewport : new $.Viewport({
+            collectionMode:         true,
+            collectionTileSource:   _this.source,
+            containerSize:          THIS[ _this.hash ].prevContainerSize, 
+            contentSize:            _this.source.dimensions, 
+            springStiffness:        _this.springStiffness,
+            animationTime:          _this.animationTime,
+            showNavigator:          false,
+            minZoomImageRatio:      1,
+            maxZoomPixelRatio:      1,
+            viewer:                 _this //,
+            //TODO: figure out how to support these in a way that makes sense
+            //minZoomLevel:           this.minZoomLevel,
+            //maxZoomLevel:           this.maxZoomLevel
+        });
+    }else{
+        if( source ){
+            _this.source = source;
+        }
+        _this.viewport = _this.viewport ? _this.viewport : new $.Viewport({
+            containerSize:      THIS[ _this.hash ].prevContainerSize, 
+            contentSize:        _this.source.dimensions, 
+            springStiffness:    _this.springStiffness,
+            animationTime:      _this.animationTime,
+            minZoomImageRatio:  _this.minZoomImageRatio,
+            maxZoomPixelRatio:  _this.maxZoomPixelRatio,
+            visibilityRatio:    _this.visibilityRatio,
+            wrapHorizontal:     _this.wrapHorizontal,
+            wrapVertical:       _this.wrapVertical,
+            defaultZoomLevel:   _this.defaultZoomLevel,
+            minZoomLevel:       _this.minZoomLevel,
+            maxZoomLevel:       _this.maxZoomLevel,
+            viewer:             _this
+        });
+    }
+    
+    if( _this.preserveViewport ){
+        _this.viewport.resetContentSize( _this.source.dimensions );
+    } 
+
+    _this.source.overlays = _this.source.overlays || [];
+
+    _this.drawer = new $.Drawer({
+        source:             _this.source, 
+        viewport:           _this.viewport, 
+        element:            _this.canvas,
+        overlays:           [].concat( _this.overlays ).concat( _this.source.overlays ),
+        maxImageCacheCount: _this.maxImageCacheCount,
+        imageLoaderLimit:   _this.imageLoaderLimit,
+        minZoomImageRatio:  _this.minZoomImageRatio,
+        wrapHorizontal:     _this.wrapHorizontal,
+        wrapVertical:       _this.wrapVertical,
+        immediateRender:    _this.immediateRender,
+        blendTime:          _this.blendTime,
+        alwaysBlend:        _this.alwaysBlend,
+        minPixelRatio:      _this.collectionMode ? 0 : _this.minPixelRatio,
+        timeout:            _this.timeout,
+        debugMode:          _this.debugMode,
+        debugGridColor:     _this.debugGridColor
+    });
+
+    //Instantiate a navigator if configured
+    if ( _this.showNavigator  && ! _this.navigator && !_this.collectionMode ){
+        _this.navigator = new $.Navigator({
+            id:          _this.navigatorElement,
+            position:    _this.navigatorPosition,
+            sizeRatio:   _this.navigatorSizeRatio,
+            height:      _this.navigatorHeight,
+            width:       _this.navigatorWidth,
+            tileSources: _this.tileSources,
+            tileHost:    _this.tileHost,
+            prefixUrl:   _this.prefixUrl,
+            overlays:    _this.overlays,
+            viewer:      _this
+        });
+    }
+
+    //Instantiate a referencestrip if configured
+    if ( _this.showReferenceStrip  && !_this.referenceStrip ){
+        _this.referenceStrip = new $.ReferenceStrip({
+            id:          _this.referenceStripElement,
+            position:    _this.referenceStripPosition,
+            sizeRatio:   _this.referenceStripSizeRatio,
+            scroll:      _this.referenceStripScroll,
+            height:      _this.referenceStripHeight,
+            width:       _this.referenceStripWidth,
+            tileSources: _this.tileSources,
+            tileHost:    _this.tileHost,
+            prefixUrl:   _this.prefixUrl,
+            overlays:    _this.overlays,
+            viewer:      _this
+        });
+    }
+
+    //this.profiler = new $.Profiler();
+
+    THIS[ _this.hash ].animating = false;
+    THIS[ _this.hash ].forceRedraw = true;
+    THIS[ _this.hash ].updateRequestId = scheduleUpdate( _this, updateMulti );
+
+    //Assuming you had programatically created a bunch of overlays
+    //and added them via configuration
+    for ( i = 0; i < _this.overlayControls.length; i++ ) {
+        
+        overlay = _this.overlayControls[ i ];
+        
+        if ( overlay.point ) {
+        
+            _this.drawer.addOverlay(
+                overlay.id, 
+                new $.Point( 
+                    overlay.point.X, 
+                    overlay.point.Y 
+                ), 
+                $.OverlayPlacement.TOP_LEFT
+            );
+        
+        } else {
+        
+            _this.drawer.addOverlay(
+                overlay.id, 
+                new $.Rect(
+                    overlay.rect.Point.X, 
+                    overlay.rect.Point.Y, 
+                    overlay.rect.Width, 
+                    overlay.rect.Height
+                ), 
+                overlay.placement
+            );
+        
+        }
+    }
+    VIEWERS[ _this.hash ] = _this;
+
+    if( _this.navigator ){
+        _this.navigator.open( source );
+    }
+
+    _this.raiseEvent( 'open', { source: source, viewer: _this } );
+
+    return _this;
+}
+
 
 
 
@@ -4827,12 +5038,15 @@ function updateMulti( viewer ) {
     var beginTime;
 
     if ( !viewer.source ) {
+        THIS[ viewer.hash ].updateRequestId = null;
         return;
     }
 
     beginTime = +new Date();
     updateOnce( viewer );
-    scheduleUpdate( viewer, arguments.callee, beginTime );
+
+    THIS[ viewer.hash ].updateRequestId = scheduleUpdate( viewer,
+        arguments.callee, beginTime );
 }
 
 function updateOnce( viewer ) {
@@ -5008,6 +5222,40 @@ function onNext(){
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - Navigator
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
     
 /**
@@ -5047,7 +5295,10 @@ $.Navigator = function( options ){
         showNavigator:          false,
         mouseNavEnabled:        false,
         showNavigationControl:  false,
-        showSequenceControl:    false
+        showSequenceControl:    false,
+        immediateRender:        true,
+        blendTime:              0,
+        animationTime:          0
     });
 
     options.minPixelRatio = this.minPixelRatio = viewer.minPixelRatio;
@@ -5238,6 +5489,20 @@ $.extend( $.Navigator.prototype, $.EventHandler.prototype, $.Viewer.prototype, {
             }( this.displayRegion.style ));  
         } 
 
+    },
+
+    open: function( source ){
+        var containerSize = this.viewer.viewport.containerSize.times( this.sizeRatio );
+        if( source.tileSize > containerSize.x || 
+            source.tileSize > containerSize.y ){
+            this.minPixelRatio = Math.min( 
+                containerSize.x, 
+                containerSize.y 
+            ) / source.tileSize;
+        } else {
+            this.minPixelRatio = this.viewer.minPixelRatio;
+        }
+        return $.Viewer.prototype.open.apply( this, [ source ] );
     }
 
 });
@@ -5310,6 +5575,39 @@ function onCanvasScroll( tracker, position, scroll, shift ) {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - getString/setString
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -5318,21 +5616,13 @@ function onCanvasScroll( tracker, position, scroll, shift ) {
 //      pythons gettext might be a reasonable approach.
 var I18N = {
     Errors: {
-        Failure:        "Sorry, but Seadragon Ajax can't run on your browser!\n" +
-                        "Please try using IE 7 or Firefox 3.\n",
         Dzc:            "Sorry, we don't support Deep Zoom Collections!",
         Dzi:            "Hmm, this doesn't appear to be a valid Deep Zoom Image.",
         Xml:            "Hmm, this doesn't appear to be a valid Deep Zoom Image.",
-        Empty:          "You asked us to open nothing, so we did just that.",
         ImageFormat:    "Sorry, we don't support {0}-based Deep Zoom Images.",
         Security:       "It looks like a security restriction stopped us from " +
                         "loading this Deep Zoom Image.",
-        Status:         "This space unintentionally left blank ({0} {1}).",
-        Unknown:        "Whoops, something inexplicably went wrong. Sorry!"
-    },
-
-    Messages: {
-        Loading:        "Loading..."
+        Status:         "This space unintentionally left blank ({0} {1})."
     },
 
     Tooltips: {
@@ -5357,12 +5647,14 @@ $.extend( $, {
         var props   = prop.split('.'),
             string  = null,
             args    = arguments,
+            container = I18N,
             i;
 
-        for ( i = 0; i < props.length; i++ ) {
+        for ( i = 0; i < props.length-1; i++ ) {
             // in case not a subproperty
-            string = I18N[ props[ i ] ] || {};
+            container = container[ props[ i ] ] || {};
         }
+        string = container[ props[ i ] ];
 
         if ( typeof( string ) != "string" ) {
             string = "";
@@ -5385,7 +5677,7 @@ $.extend( $, {
     setString: function( prop, value ) {
 
         var props     = prop.split('.'),
-            container = $.Strings,
+            container = I18N,
             i;
 
         for ( i = 0; i < props.length - 1; i++ ) {
@@ -5401,6 +5693,40 @@ $.extend( $, {
 });
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Point
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
 
@@ -5544,6 +5870,40 @@ $.Point.prototype = {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - TileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
 
 
@@ -5611,7 +5971,7 @@ $.TileSource = function( width, height, tileSize, tileOverlap, minLevel, maxLeve
             height: args[1],
             tileSize: args[2],
             tileOverlap: args[3],
-            minlevel: args[4],
+            minLevel: args[4],
             maxLevel: args[5]
         };
     }
@@ -5726,6 +6086,24 @@ $.TileSource.prototype = {
         return new $.Point(rx, ry);
     },
 
+
+    /**
+     * @function
+     * @param {Number} level
+     */
+    getClosestLevel: function( rect ) {
+        var i,
+            tilesPerSide = Math.floor( Math.max( rect.x, rect.y ) / this.tileSize ),
+            tiles;
+        for( i = this.minLevel; i < this.maxLevel; i++ ){
+            tiles = this.getNumTiles( i );
+            if( Math.max( tiles.x, tiles.y ) + 1 >= tilesPerSide ){
+                break;
+            }
+        }
+        return Math.max( 0, i - 1 );
+    },
+
     /**
      * @function
      * @param {Number} level
@@ -5809,9 +6187,7 @@ $.TileSource.prototype = {
                 callback: callback
             });
         } else {
-            //TODO: struggling a little with TileSource rewrite to make info
-            //      requests work asyncronously.  For now I'm opting to make
-            //      all xhr info request syncronous.
+            // request info via xhr asyncronously.
             $.makeAjaxRequest( url, function( xhr ) {
                 var data = processResponse( xhr );
                 callback( data );
@@ -5943,7 +6319,7 @@ function processResponse( xhr ){
  * @eprivate
  * @inner
  * @function
- * @param {Object|Array} data - the tile source configuration object
+ * @param {Object|Array|Document} data - the tile source configuration object
  * @param {String} url - the url where the tile source configuration object was
  *      loaded from, if any.
  */
@@ -5963,6 +6339,39 @@ $.TileSource.determineType = function( tileSource, data, url ){
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - DziTileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -6073,19 +6482,8 @@ $.extend( $.DziTileSource.prototype, $.TileSource.prototype, {
             options = configureFromObject( this, data );
         }
 
-        if( url && !options.tilesUrl ){
-            if( 'http' !== url.substring( 0, 4 ) ){
-                host = location.protocol + '//' + location.host;
-            }
-            dziPath = url.split('/');
-            dziName = dziPath.pop();
-            dziName = dziName.substring(0, dziName.lastIndexOf('.'));
-            dziPath = '/' + dziPath.join('/') + '/' + dziName + '_files/';
-            tilesUrl = dziPath;
-            if( host ){
-                tilesUrl = host + tilesUrl;
-            }
-            options.tilesUrl = tilesUrl;
+        if (url && !options.tilesUrl) {
+            options.tilesUrl = url.replace(/([^\/]+)\.(dzi|xml|js)$/, '$1_files/');
         }
 
         return options;
@@ -6181,6 +6579,7 @@ function configureFromXML( tileSource, xmlDoc ){
             configuration = {
                 Image: {
                     xmlns:       "http://schemas.microsoft.com/deepzoom/2008",
+                    Url:         root.getAttribute( "Url" ),
                     Format:      root.getAttribute( "Format" ),
                     DisplayRect: null,
                     Overlap:     parseInt( root.getAttribute( "Overlap" ), 10 ), 
@@ -6280,8 +6679,7 @@ function configureFromObject( tileSource, configuration ){
         ));
     }
 
-
-    return {
+    return $.extend(true, {
         width: width, /* width *required */
         height: height, /* height *required */
         tileSize: tileSize, /* tileSize *required */
@@ -6291,11 +6689,52 @@ function configureFromObject( tileSource, configuration ){
         tilesUrl: tilesUrl, /* tilesUrl */
         fileFormat: fileFormat, /* fileFormat */
         displayRects: displayRects /* displayRects */
-    };
+    }, configuration );
 
 }
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - IIIFTileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * The getTileUrl implementation is based on Jon Stroop's Python version,
+ * which is released under the New BSD license:
+ * https://gist.github.com/jpstroop/4624253
+ */
+
 
 (function( $ ){
     
@@ -6303,9 +6742,6 @@ function configureFromObject( tileSource, configuration ){
  * A client implementation of the International Image Interoperability 
  * Format: Image API Draft 0.2 - Please read more about the specification
  * at 
- *
- * The getTileUrl implementation is based on the gist from:
- * https://gist.github.com/jpstroop/4624253
  *
  * @class
  * @extends OpenSeadragon.TileSource
@@ -6584,11 +7020,53 @@ function configureFromObject( tileSource, configuration ){
 }
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - OsmTileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * Derived from the OSM tile source in Rainer Simon's seajax-utils project
+ * <http://github.com/rsimon/seajax-utils>.  Rainer Simon has contributed
+ * the included code to the OpenSeadragon project under the New BSD license;
+ * see <https://github.com/openseadragon/openseadragon/issues/58>.
+ */
+
+
 (function( $ ){
     
 /**
- * A tilesource implementation for OpenStreetMap. Adopted from Rainer Simon
- * project http://github.com/rsimon/seajax-utils.
+ * A tilesource implementation for OpenStreetMap.
  *
  * Note 1. Zoomlevels. Deep Zoom and OSM define zoom levels differently. In  Deep 
  * Zoom, level 0 equals an image of 1x1 pixels. In OSM, level 0 equals an image of
@@ -6691,13 +7169,54 @@ $.extend( $.OsmTileSource.prototype, $.TileSource.prototype, {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - TmsTileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * Derived from the TMS tile source in Rainer Simon's seajax-utils project
+ * <http://github.com/rsimon/seajax-utils>.  Rainer Simon has contributed
+ * the included code to the OpenSeadragon project under the New BSD license;
+ * see <https://github.com/openseadragon/openseadragon/issues/58>.
+ */
+
+
 (function( $ ){
     
 /**
- * A tilesource implementation for Tiled Map Services (TMS). Adopted from Rainer Simon
- * project http://github.com/rsimon/seajax-utils. TMS tile
- * scheme ( [ as supported by OpenLayers ] is described here 
- * ( http://openlayers.org/dev/examples/tms.html ) )
+ * A tilesource implementation for Tiled Map Services (TMS).
+ * TMS tile scheme ( [ as supported by OpenLayers ] is described here
+ * ( http://openlayers.org/dev/examples/tms.html ).
  *
  * @class
  * @extends OpenSeadragon.TileSource
@@ -6789,6 +7308,41 @@ $.extend( $.TmsTileSource.prototype, $.TileSource.prototype, {
 
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - LegacyTileSource
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
 
 /**
@@ -7054,6 +7608,40 @@ function configureFromObject( tileSource, configuration ){
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - TileSourceCollection
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
     
 /**
@@ -7165,6 +7753,40 @@ $.extend( $.TileSourceCollection.prototype, $.TileSource.prototype, {
 
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Button
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
 
@@ -7515,6 +8137,40 @@ function outTo( button, newState ) {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - ButtonGroup
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
 /**
  * Manages events on groups of buttons.
@@ -7624,6 +8280,40 @@ $.ButtonGroup.prototype = {
 
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Rect
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -7742,6 +8432,39 @@ $.Rect.prototype = {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - ReferenceStrip
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -8121,11 +8844,13 @@ function loadPanels(strip, viewerSize, scroll){
                 tileSources:            [ strip.viewer.tileSources[ i ] ],
                 element:                element,
                 navigatorSizeRatio:     strip.sizeRatio,
-                minPixelRatio:          strip.minPixelRatio, 
                 showNavigator:          false,
                 mouseNavEnabled:        false,
                 showNavigationControl:  false,
-                showSequenceControl:    false
+                showSequenceControl:    false,
+                immediateRender:        true,
+                blendTime:              0,
+                animationTime:          0
             } ); 
 
             miniViewer.displayRegion           = $.makeNeutralElement( "textarea" );
@@ -8260,6 +8985,41 @@ function onKeyPress( tracker, keyCode, shiftKey ){
 
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - DisplayRect
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
 
 /**
@@ -8287,6 +9047,40 @@ $.DisplayRect = function( x, y, width, height, minLevel, maxLevel ) {
 $.extend( $.DisplayRect.prototype, $.Rect.prototype );
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Spring
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -8406,8 +9200,42 @@ function transform( stiffness, x ) {
 
 }( OpenSeadragon ));
 
+/*
+ * OpenSeadragon - Tile
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 (function( $ ){
-    
+    var TILE_CACHE       = {};
 /**
  * @class
  * @param {Number} level The zoom level this tile belongs to.
@@ -8548,9 +9376,11 @@ $.Tile.prototype = {
     drawCanvas: function( context ) {
 
         var position = this.position,
-            size     = this.size;
+            size     = this.size,
+            rendered,
+            canvas;
 
-        if ( !this.loaded || !this.image ) {
+        if ( !this.loaded || !( this.image || TILE_CACHE[ this.url ] ) ){
             $.console.warn(
                 "Attempting to draw tile %s when it's not yet loaded.",
                 this.toString()
@@ -8559,13 +9389,13 @@ $.Tile.prototype = {
         }
         context.globalAlpha = this.opacity;
 
-        context.save();
+        //context.save();
 
-        //if we are supposed to b rendering fully opaque rectangle,
+        //if we are supposed to be rendering fully opaque rectangle,
         //ie its done fading or fading is turned off, and if we are drawing
         //an image with an alpha channel, then the only way
         //to avoid seeing the tile underneath is to clear the rectangle
-        if( context.globalAlpha == 1 && this.image.src.match('.png') ){
+        if( context.globalAlpha == 1 && this.url.match('.png') ){
             //clearing only the inside of the rectangle occupied
             //by the png prevents edge flikering
             context.clearRect( 
@@ -8576,10 +9406,36 @@ $.Tile.prototype = {
             );
 
         }
-        
-        context.drawImage( this.image, position.x, position.y, size.x, size.y );
 
-        context.restore();
+        if( !TILE_CACHE[ this.url ] ){
+            canvas = document.createElement( 'canvas' );
+            canvas.width = this.image.width;
+            canvas.height = this.image.height;
+            rendered = canvas.getContext('2d');
+            rendered.drawImage( this.image, 0, 0 );
+            TILE_CACHE[ this.url ] = rendered;
+            //since we are caching the prerendered image on a canvas
+            //allow the image to not be held in memory
+            this.image = null;
+        }
+
+        rendered = TILE_CACHE[ this.url ];
+        
+        //rendered.save();
+        context.drawImage( 
+            rendered.canvas, 
+            0,
+            0, 
+            rendered.canvas.width, 
+            rendered.canvas.height, 
+            position.x, 
+            position.y, 
+            size.x, 
+            size.y 
+        );
+        //rendered.restore();
+
+        //context.restore();
     },
 
     /**
@@ -8589,9 +9445,12 @@ $.Tile.prototype = {
     unload: function() {
         if ( this.element && this.element.parentNode ) {
             this.element.parentNode.removeChild( this.element );
+        } 
+        if ( TILE_CACHE[ this.url ]){
+            delete TILE_CACHE[ this.url ];
         }
 
-        this.element    = null;
+        this.element = null;
         this.image   = null;
         this.loaded  = false;
         this.loading = false;
@@ -8599,6 +9458,40 @@ $.Tile.prototype = {
 };
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Overlay
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
 
@@ -8785,6 +9678,40 @@ $.Tile.prototype = {
     };
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Drawer
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
     
@@ -9016,8 +9943,7 @@ $.Drawer.prototype = {
         }
         if( this.viewer ){
             this.viewer.raiseEvent( 'clear-overlay', { 
-                viewer: this.viewer,
-                element: element
+                viewer: this.viewer
             });
         }
         return this;
@@ -9166,7 +10092,7 @@ $.Drawer.prototype = {
         element.href    = "#/overlay/"+id;
     }
     element.id        = id;
-    element.className = element.className + " " + ( overlay.className ?
+    $.addClass( element, overlay.className ?
         overlay.className :
         "openseadragon-overlay"
     );
@@ -9303,7 +10229,12 @@ function updateViewport( drawer ) {
         ).x;
 
         zeroRatioT      = drawer.viewport.deltaPixelsFromPoints( 
-            drawer.source.getPixelRatio( 0 ), 
+            drawer.source.getPixelRatio( 
+                Math.max(
+                    drawer.source.getClosestLevel( drawer.viewport.containerSize ) - 1,
+                    0
+                )
+            ), 
             false
         ).x;
         
@@ -9366,8 +10297,8 @@ function updateLevel( drawer, haveDrawn, level, levelOpacity, levelVisibility, v
             level: level, 
             opacity: levelOpacity,
             visibility: levelVisibility, 
-            topleft: viewportTopLeft, 
-            bottomright: viewportBottomRight, 
+            topleft: viewportTL, 
+            bottomright: viewportBR, 
             currenttime: currentTime, 
             best: best
         });
@@ -9638,7 +10569,7 @@ function blendTile( drawer, tile, x, y, level, levelOpacity, currentTime ){
     }
 
     deltaTime   = currentTime - tile.blendStart;
-    opacity     = Math.min( 1, deltaTime / ( blendTimeMillis || 1 ) );
+    opacity     = blendTimeMillis ? Math.min( 1, deltaTime / ( blendTimeMillis ) ) : 1;
     
     if ( drawer.alwaysBlend ) {
         opacity *= levelOpacity;
@@ -9868,14 +10799,11 @@ function drawTiles( drawer, lastDrawn ){
                 //$.console.log("Rendering collection tile %s | %s | %s", tile.y, tile.y, position);
                 if( tileSource ){
                     drawer.collectionOverlays[ tileKey ] = viewer = new $.Viewer({
-                        element:               $.makeNeutralElement( "div" ),
-                        mouseNavEnabled:       false,
-                        showNavigator:         false,
-                        showSequenceControl:   false,
-                        showNavigationControl: false,
-                        //visibilityRatio:       1,
-                        //debugMode:             true,
-                        //debugGridColor:        'red',
+                        element:                $.makeNeutralElement( "div" ),
+                        mouseNavEnabled:        false,
+                        showNavigator:          false,
+                        showSequenceControl:    false,
+                        showNavigationControl:  false,
                         tileSources: [
                             tileSource
                         ]
@@ -9941,6 +10869,7 @@ function drawTiles( drawer, lastDrawn ){
 function drawDebugInfo( drawer, tile, count, i ){
 
     if ( USE_CANVAS ) {
+        drawer.context.save();
         drawer.context.lineWidth = 2;
         drawer.context.font = 'small-caps bold 13px ariel';
         drawer.context.strokeStyle = drawer.debugGridColor;
@@ -9993,11 +10922,46 @@ function drawDebugInfo( drawer, tile, count, i ){
             tile.position.x + 10, 
             tile.position.y + 70
         );
+        drawer.context.restore();
     }
 }
 
 
 }( OpenSeadragon ));
+
+/*
+ * OpenSeadragon - Viewport
+ *
+ * Copyright (C) 2009 CodePlex Foundation
+ * Copyright (C) 2010-2013 OpenSeadragon contributors
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ *
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ *
+ * - Neither the name of CodePlex Foundation nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 (function( $ ){
 
