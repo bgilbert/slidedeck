@@ -73,7 +73,7 @@ class _Directory(object):
                 cur_dir = _Directory(basedir, cur_relpath)
                 if cur_dir.children:
                     self.children.append(cur_dir)
-            elif OpenSlide.can_open(cur_path):
+            elif OpenSlide.detect_format(cur_path):
                 self.children.append(_SlideFile(cur_relpath))
 
 
