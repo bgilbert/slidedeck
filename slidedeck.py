@@ -2,7 +2,7 @@
 #
 # slidedeck - Simple web application for viewing whole-slide images
 #
-# Copyright (c) 2010-2012 Carnegie Mellon University
+# Copyright (c) 2010-2014 Carnegie Mellon University
 #
 # This library is free software; you can redistribute it and/or modify it
 # under the terms of version 2.1 of the GNU Lesser General Public License
@@ -32,6 +32,7 @@ SLIDE_CACHE_SIZE = 10
 DEEPZOOM_FORMAT = 'jpeg'
 DEEPZOOM_TILE_SIZE = 256
 DEEPZOOM_OVERLAP = 1
+DEEPZOOM_LIMIT_BOUNDS = True
 DEEPZOOM_TILE_QUALITY = 75
 
 app = Flask(__name__)
@@ -89,6 +90,7 @@ def _setup():
     config_map = {
         'DEEPZOOM_TILE_SIZE': 'tile_size',
         'DEEPZOOM_OVERLAP': 'overlap',
+        'DEEPZOOM_LIMIT_BOUNDS': 'limit_bounds',
     }
     opts = dict((v, app.config[k]) for k, v in config_map.iteritems())
     app.cache = _SlideCache(app.config['SLIDE_CACHE_SIZE'], opts)
@@ -152,6 +154,9 @@ def tile(path, level, col, row, format):
 
 if __name__ == '__main__':
     parser = OptionParser(usage='Usage: %prog [options] [slide-directory]')
+    parser.add_option('-B', '--ignore-bounds', dest='DEEPZOOM_LIMIT_BOUNDS',
+                default=True, action='store_false',
+                help='display entire scan area')
     parser.add_option('-c', '--config', metavar='FILE', dest='config',
                 help='config file')
     parser.add_option('-d', '--debug', dest='DEBUG', action='store_true',
